@@ -1,7 +1,7 @@
 import axios from "axios";
-
+import dotenv from "dotenv/config"
 // Set up the base URL for your API
-const API_URL = 'http://localhost:3000/api'; // Adjust as necessary
+// const API_URL = 'http://localhost:3000/api'; // Adjust as necessary
 
 // Function for user signup
 export const signup = async (email, password, role) => {
@@ -16,7 +16,7 @@ export const signup = async (email, password, role) => {
 // Function for user login
 export const login = async (email, password) => {
   try {
-    const response = await axios.post(`${API_URL}/auth/login`, { email, password });
+    const response = await axios.post(`${process.env.API_URL}/auth/login`, { email, password });
     return response.data;
   } catch (error) {
     throw error.response?.data || error.message;
@@ -26,7 +26,7 @@ export const login = async (email, password) => {
 // Function for fetching protected data (classrooms)
 export const fetchClassrooms = async (token) => {
   try {
-    const response = await axios.get(`${API_URL}/classroom/class`, {
+    const response = await axios.get(`${process.env.API_URL}/classroom/class`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     return response.data;
@@ -38,7 +38,7 @@ export const fetchClassrooms = async (token) => {
 // Function for fetching user details
 export const getUserDetails = async (token) => {
   try {
-    const response = await axios.get(`${API_URL}/user/details`, {
+    const response = await axios.get(`${process.env.API_URL}/user/details`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
@@ -50,7 +50,7 @@ export const getUserDetails = async (token) => {
 // Function to create a timetable
 export const createTimetable = async (timetable) => {
   try {
-    const response = await axios.post(`${API_URL}/Timetable`, timetable);
+    const response = await axios.post(`${process.env.API_URL}/Timetable`, timetable);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || error.message);
@@ -61,7 +61,7 @@ export const createTimetable = async (timetable) => {
 // Function to fetch timetables for a classroom
 export const fetchTimetablesForClassroom = async (classroomId) => {
   try {
-    const response = await axios.get(`${API_URL}/Timetable/classroom/${classroomId}`);
+    const response = await axios.get(`${process.env.API_URL}/Timetable/classroom/${classroomId}`);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || error.message);

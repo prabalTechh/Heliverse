@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const API_URLL = 'https://heliverse-qmxf.onrender.com/api'; 
 
 const Home = () => {
   const [name, setName] = useState("");
@@ -21,7 +22,7 @@ const Home = () => {
     const fetchClassrooms = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/classrooms"
+          `${API_URLL}/classrooms`
         );
         setClassrooms(response.data);
       } catch (error) {
@@ -36,7 +37,7 @@ const Home = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/classrooms",
+        `${API_URLL}/classrooms`,
         {
           name,
           startTime,
@@ -59,7 +60,7 @@ const Home = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/Timetables",
+        `${API_URLL}/Timetables`,
         {
           classroomId: selectedClassroomId,
           teacherId,
@@ -87,7 +88,7 @@ const Home = () => {
   const fetchTimetables = async (classroomId) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/Timetables/${classroomId}`
+        `${API_URLL}/Timetables/${classroomId}`
       );
       setTimetables(response.data);
     } catch (error) {

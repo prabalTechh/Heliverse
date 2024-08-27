@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Set up the base URL for your API
-const API_URLL = 'https://heliverse-qmxf.onrender.com/api'; // Updated to your Render backend URL
+const API_URLL = 'https://heliverse-qmxf.onrender.com/api'; 
 
 // Function for user signup
 export const signup = async (email, password, role) => {

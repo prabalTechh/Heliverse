@@ -1,53 +1,6 @@
-// import React, { useState } from 'react';
-// import { login } from '../apiService';
-
-// const LoginForm = () => {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [message, setMessage] = useState('');
-//   const [token, setToken] = useState('');
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const data = await login(email, password);
-//       setToken(data.token);
-//       setMessage('Login successful!');
-//       localStorage.setItem('token', data.token); // Store token in localStorage
-//     } catch (error) {
-//       setMessage(`Login failed: ${error}`);
-//     }
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <h2>Login</h2>
-//       <input
-//         type="email"
-//         placeholder="Email"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//         required
-//       />
-//       <input
-//         type="password"
-//         placeholder="Password"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//         required
-//       />
-//       <button type="submit">Login</button>
-//       <p>{message}</p>
-//     </form>
-//   );
-// };
-
-// export default LoginForm;
-
-
 import React, { useState } from "react";
-import { login } from "../apiService"; // Import the API service
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { login } from "../apiService";
+import { useNavigate } from "react-router-dom"; 
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');

@@ -2,11 +2,11 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv/config';
 import mongoose from 'mongoose';
-import UserDb from './models/UserDb.js'; // Ensure correct path
-import ClassroomDb from './models/ClassroomDb.js'; // Ensure correct path
+import UserDb from './models/UserDb.js';
+import ClassroomDb from './models/ClassroomDb.js'; 
 import bcrypt from 'bcryptjs';
-import authRoutes from './routes/authRoutes.js'; // Ensure correct path
-import classroomRoutes from './routes/classroomRoutes.js'; // Ensure correct path
+import authRoutes from './routes/authRoutes.js'; 
+import classroomRoutes from './routes/classroomRoutes.js'; 
 import timetableRoutes from "./routes/timetableRoutes.js";
 
 

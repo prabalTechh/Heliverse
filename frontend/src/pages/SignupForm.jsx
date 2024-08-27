@@ -1,7 +1,5 @@
-
-
 import React, { useState } from "react";
-import { signup } from "../apiService"; // Import the API service
+import { signup } from "../apiService"; 
 import {Link} from "react-router-dom"
 
 const SignupForm = () => {

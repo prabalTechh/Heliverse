@@ -1,11 +1,11 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import { check, validationResult } from 'express-validator';
-import User from '../models/UserDb.js'; // Ensure the path is correct
+import User from '../models/UserDb.js'; 
 import bcrypt from 'bcryptjs';
 import Classroom from '../models/ClassroomDb.js';
-import authenticateToken from "../middleware/authernticateToken.js"; // Adjust path as needed
-import authorizeRoles from '../middleware/authorizeRoles.js'; // Ensure this middleware is implemented
+import authenticateToken from "../middleware/authernticateToken.js"; 
+import authorizeRoles from '../middleware/authorizeRoles.js'; 
 
 const router = express.Router();
 

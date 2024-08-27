@@ -55,7 +55,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Get all timetables for a classroom
+
 // Get all timetables for a classroom
 router.get('/:classroomId', async (req, res) => {
   const { classroomId } = req.params;

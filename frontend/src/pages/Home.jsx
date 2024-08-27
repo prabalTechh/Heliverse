@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 const API_URLL = 'https://heliverse-qmxf.onrender.com/api'; 
 
 const Home = () => {
+  const [classrooms, setClassrooms] = useState([]);
   const [name, setName] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [days, setDays] = useState([]);
-  const [classrooms, setClassrooms] = useState([]);
   const [selectedClassroomId, setSelectedClassroomId] = useState("");
   const [subject, setSubject] = useState("");
   const [day, setDay] = useState("");
@@ -18,6 +18,8 @@ const Home = () => {
   const [timetables, setTimetables] = useState([]);
   const [teacherName, setTeacherName] = useState("")
   const navigate = useNavigate();
+
+  //fetch the classroom
   useEffect(() => {
     const fetchClassrooms = async () => {
       try {
@@ -93,6 +95,17 @@ const Home = () => {
       setTimetables(response.data);
     } catch (error) {
       console.error("Error fetching timetables", error);
+    }
+  };
+
+  const handleDeleteClassroom = async (classroomId) => {
+    try {
+      await axios.delete(`${API_URLL}/classrooms/${classroomId}`);
+      alert("Classroom deleted successfully!");
+      setClassrooms(classrooms.filter((classroom) => classroom._id !== classroomId));
+    } catch (error) {
+      console.error("Error deleting classroom", error);
+      alert("Error deleting classroom");
     }
   };
 
@@ -214,6 +227,12 @@ const Home = () => {
                     className="px-2 py-1 bg-green-500 text-white rounded"
                   >
                     View Timetables
+                  </button>
+                  <button
+                    onClick={() => handleDeleteClassroom(classroom._id)}
+                    className="ml-2 px-2 py-1 bg-red-500 text-white rounded"
+                  >
+                    Delete
                   </button>
                 </td>
                 <td className="px-6 py-4">
